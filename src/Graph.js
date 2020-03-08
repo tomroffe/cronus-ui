@@ -22,21 +22,18 @@ export default class Graph extends Component {
         return (     
             <ResponsiveCalendar
                 data={data}
-                from="2014-01-01"
-                to="2018-12-31"
+                from="2017-01-01"
+                to="2019-09-31"
                 emptyColor="#eeeeee"
+                minValue="auto"
                 domain={'auto'}
-                margin={{
-                    "top": 50,
-                    "right": 20,
-                    "bottom": 50,
-                    "left": 50
-                }}
+                align="top"
+                margin={{ top: 50, right: 10, bottom: 80, left: 30 }}
                 theme={theme}
                 yearSpacing={40}
                 monthBorderColor="#ffffff"
                 monthLegendOffset={16}
-                dayBorderWidth={3}
+                dayBorderWidth={2}
                 dayBorderColor="#fafafa"
                 colors={[
                     '#a1cfff',
@@ -47,7 +44,7 @@ export default class Graph extends Component {
                   ]}
                 legends={[
                     {
-                        "anchor": "bottom",
+                        "anchor": "bottom-right",
                         "direction": "row",
                         "translateY": 40,
                         "itemWidth": 28,

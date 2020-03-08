@@ -5,7 +5,6 @@ import { withStyles } from '@material-ui/core/styles';
 import { Grid,
          Typography, 
          FormControl } from '@material-ui/core';
-import { AppBar, Toolbar } from "@material-ui/core";
 import Select from 'react-select';
 
 import Graph from './Graph'
@@ -13,10 +12,10 @@ import Pie from './Pie'
 
 const styles = theme => ({
   graph: {
-    margin: 0,
+    margin: theme.spacing.unit,
   },
   pie: {
-    margin: 0,
+    margin: theme.spacing.unit,
   },
 
   formControl: {
@@ -261,7 +260,6 @@ class Cronus extends Component {
               </Grid>
               <Grid >
                 <Grid container spacing={16} alignItems={'center'} direction={'row'} justify={'center'}>
-                
                   <Grid item className={classes.select} xs={12} lg={6} align={'center'}>
                     <Typography variant="subtitle1">Department</Typography>
                     <FormControl component="fieldset" className={classes.formControl}>
@@ -274,20 +272,31 @@ class Cronus extends Component {
                       <Select isClearable className={classes.selectfield} value={this.state.selectedCategory} onChange={this.handleCategoryChange} options={this.state.categories} />
                     </FormControl>
                   </Grid>
-                  
                 </Grid>
               </Grid>
             </Grid>
           </Grid>
-          <Grid item xs={12} lg={6}>
-            <div style={{ height: 500}}>
-              <Pie data={this.state.pie_data} />
-            </div>
+        </Grid>
+        <Grid container spacing={16}>
+          <Grid item xs={12} align={'center'}>
+              
           </Grid>
-          <Grid item xs={12} lg={6}>
-            <div style={{ height: 500}}>
-              <Graph fontSize={16} group={this.state.selectedOption} data={this.state.data}/>
-            </div>
+          <Grid item className={classes.select} xs={12} align={'center'}>
+
+            <Grid item xs={12} lg={6} align={'center'}>
+              <Typography align={'center'}>
+                <strong>Payment Frequency</strong>
+              </Typography>
+              <Typography variant="caption" align={'center'}>Per Day</Typography>
+              <div style={{ height: 600}}>
+                <Graph fontSize={16} group={this.state.selectedOption} data={this.state.data}/>
+              </div>
+            </Grid>
+            <Grid item xs={12} lg={6} align={'center'}>
+              <div style={{ height: 600}}>
+                <Pie data={this.state.pie_data} />
+              </div>
+            </Grid>
           </Grid>
         </Grid>
       </div>

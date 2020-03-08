@@ -8,7 +8,7 @@ export default class Pie extends Component {
     render() {
         const { data } = this.props;
 
-        return (     
+        return (
             <ResponsivePie
                 data={data}
                 fit={true}
@@ -18,15 +18,16 @@ export default class Pie extends Component {
                     "bottom": 120,
                     "left": 120
                 }}
-                pixelRatio={2}
-                innerRadius={0.5}
+
+                innerRadius={0.4}
                 padAngle={1}
                 cornerRadius={3}
                 colors="paired"
                 colorBy="id"
                 borderWidth={1}
+                sortByValue={true}
                 borderColor="inherit:darker(0.99)"
-                radialLabelsSkipAngle={10}
+                radialLabelsSkipAngle={12}
                 radialLabelsTextXOffset={5}
                 radialLabelsTextColor="#333333"
                 radialLabelsLinkOffset={0}
@@ -34,26 +35,29 @@ export default class Pie extends Component {
                 radialLabelsLinkHorizontalLength={8}
                 radialLabelsLinkStrokeWidth={1}
                 radialLabelsLinkColor="inherit"
-                enableRadialLabels={false}
-                slicesLabelsSkipAngle={10}
+                enableRadialLabels={true}
+                slicesLabelsSkipAngle={18}
                 slicesLabelsTextColor="#333333"
                 enableSlicesLabels={true}
-                sliceLabel={function(e){
+                sliceLabel={function (e) {
                     return accounting.formatMoney(e.value, "£ ", 0);
                 }}
                 animate={true}
                 motionStiffness={90}
                 motionDamping={15}
+                tooltip={function (e) { 
+                    return e.label + " " +accounting.formatMoney(e.value, "£ ", 0);
+                }}
                 legends={[
                     {
                         "anchor": "right",
                         "direction": "column",
-                        "translateY": 170,
-                        "translateX": 30,
-                        "itemWidth": 100,
-                        "itemHeight": 18,
+                        "translateY": 200,
+                        "translateX": 60,
+                        "itemWidth": 160,
+                        "itemHeight": 16,
                         "itemTextColor": "#999",
-                        "symbolSize": 18,
+                        "symbolSize": 14,
                         "symbolShape": "circle",
                         "effects": [
                             {

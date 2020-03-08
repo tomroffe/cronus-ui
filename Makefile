@@ -14,6 +14,11 @@ build:
 	docker tag $(NAME):$(VERSION) $(APP_IMAGE)
 .PHONY: build
 
+run:
+	docker run -p 8000:8000 -it cronus-ui:latest
+.PHONY: run
+
+
 push: build
 	$(shell aws ecr get-login --no-include-email --region eu-west-1)
 	docker push $(APP_IMAGE)

@@ -29,4 +29,6 @@ COPY --from=build-stage /app/build/ /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY project.conf /etc/nginx/conf.d/project.conf
 
+EXPOSE 8000
+
 
